@@ -1,0 +1,523 @@
+12:26:13,182 [main]  INFO MainConfig:84 - ****************************************************************************
+12:26:13,338 [main]  INFO MainConfig:84 - *** Global options ***
+12:26:13,338 [main]  INFO MainConfig:84 - Mode = list files
+12:26:13,338 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:26:13,338 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:26:13,338 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:26:13,338 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:26:13,338 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:26:13,338 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_122613.txt"
+12:26:13,338 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:26:13,338 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:26:13,338 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:26:13,338 [main]  INFO CCConfig:84 - executable = "cleartool.exe"
+12:26:13,338 [main]  INFO CCConfig:84 - projectPath = "M:kedar.kulkarni02_viewMigrate_VOB"
+12:26:13,338 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:26:13,338 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:26:13,338 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:26:13,338 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:26:13,353 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:26:13,353 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:26:13,353 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:26:13,400 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:26:13,400 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:26:13,400 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:26:13,400 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:26:13,400 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:26:13,400 [main]  INFO MainConfig:84 - ****************************************************************************
+12:26:13,416 [main]  INFO historyLogger:84 - **********************************************************************
+12:26:13,416 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:26:13 PM
+12:26:13,416 [main]  INFO historyLogger:84 - mode: list files
+12:26:13,416 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:26:13,416 [main]  INFO Main:84 - List files to files_20200107_122613.txt
+12:26:13,509 [main]  INFO Exec:84 - exec cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:26:13,572 [main] ERROR Main:96 - EXCEPTION CAUGHT: org.polarion.svnimporter.ccprovider.CCException: error during execution command cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n, exception caught
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:244)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: Cannot run program "cleartool.exe" (in directory "M:kedar.kulkarni02_viewMigrate_VOB"): CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+
+12:26:13,572 [main] DEBUG CCProvider:80 - cleanup
+12:26:13,572 [main]  INFO historyLogger:84 - duration: 0 seconds
+12:31:34,773 [main]  INFO MainConfig:84 - ****************************************************************************
+12:31:34,773 [main]  INFO MainConfig:84 - *** Global options ***
+12:31:34,773 [main]  INFO MainConfig:84 - Mode = list files
+12:31:34,773 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:31:34,773 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:31:34,773 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:31:34,773 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:31:34,773 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:31:34,789 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_123134.txt"
+12:31:34,789 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:31:34,789 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:31:34,789 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:31:34,789 [main]  INFO CCConfig:84 - executable = ""C:ProgramDataMicrosoftWindowsStart MenuProgramsIBM Rational ClearCasecleartool.exe""
+12:31:34,789 [main]  INFO CCConfig:84 - projectPath = "M:kedar.kulkarni02_viewMigrate_VOB"
+12:31:34,789 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:31:34,789 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:31:34,789 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:31:34,789 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:31:34,789 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:31:34,805 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:31:34,805 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:31:34,805 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:31:34,805 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:31:34,805 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:31:34,805 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:31:34,805 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:31:34,805 [main]  INFO MainConfig:84 - ****************************************************************************
+12:31:34,805 [main]  INFO historyLogger:84 - **********************************************************************
+12:31:34,805 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:31:34 PM
+12:31:34,805 [main]  INFO historyLogger:84 - mode: list files
+12:31:34,805 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:31:34,805 [main]  INFO Main:84 - List files to files_20200107_123134.txt
+12:31:34,820 [main]  INFO Exec:84 - exec "C:ProgramDataMicrosoftWindowsStart MenuProgramsIBM Rational ClearCasecleartool.exe" lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:31:34,962 [main] ERROR Main:96 - EXCEPTION CAUGHT: org.polarion.svnimporter.ccprovider.CCException: error during execution command "C:ProgramDataMicrosoftWindowsStart MenuProgramsIBM Rational ClearCasecleartool.exe" lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n, exception caught
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:244)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: Cannot run program ""C:ProgramDataMicrosoftWindowsStart MenuProgramsIBM Rational ClearCasecleartool.exe"" (in directory "M:kedar.kulkarni02_viewMigrate_VOB"): CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+
+12:31:34,962 [main] DEBUG CCProvider:80 - cleanup
+12:31:34,977 [main]  INFO historyLogger:84 - duration: 0 seconds
+12:34:06,140 [main]  INFO MainConfig:84 - ****************************************************************************
+12:34:06,140 [main]  INFO MainConfig:84 - *** Global options ***
+12:34:06,140 [main]  INFO MainConfig:84 - Mode = list files
+12:34:06,140 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:34:06,140 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:34:06,140 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:34:06,140 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:34:06,140 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:34:06,156 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_123406.txt"
+12:34:06,156 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:34:06,156 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:34:06,156 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:34:06,156 [main]  INFO CCConfig:84 - executable = ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe""
+12:34:06,156 [main]  INFO CCConfig:84 - projectPath = "M:\kedar.kulkarni02_view\Migrate_VOB"
+12:34:06,156 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:34:06,156 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:34:06,156 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:34:06,156 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:34:06,172 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:34:06,172 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:34:06,172 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:34:06,172 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:34:06,172 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:34:06,172 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:34:06,172 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:34:06,172 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:34:06,172 [main]  INFO MainConfig:84 - ****************************************************************************
+12:34:06,172 [main]  INFO historyLogger:84 - **********************************************************************
+12:34:06,187 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:34:06 PM
+12:34:06,187 [main]  INFO historyLogger:84 - mode: list files
+12:34:06,187 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:34:06,218 [main]  INFO Main:84 - List files to files_20200107_123406.txt
+12:34:06,234 [main]  INFO Exec:84 - exec "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe" lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:34:06,249 [main] ERROR Main:96 - EXCEPTION CAUGHT: org.polarion.svnimporter.ccprovider.CCException: error during execution command "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe" lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n, exception caught
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:244)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: Cannot run program ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe"" (in directory "M:\kedar.kulkarni02_view\Migrate_VOB"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+
+12:34:06,249 [main] DEBUG CCProvider:80 - cleanup
+12:34:06,249 [main]  INFO historyLogger:84 - duration: 0 seconds
+12:37:31,751 [main]  INFO MainConfig:84 - ****************************************************************************
+12:37:31,761 [main]  INFO MainConfig:84 - *** Global options ***
+12:37:31,761 [main]  INFO MainConfig:84 - Mode = list files
+12:37:31,761 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:37:31,761 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:37:31,761 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:37:31,761 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:37:31,761 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:37:31,761 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_123731.txt"
+12:37:31,761 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:37:31,761 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:37:31,761 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:37:31,761 [main]  INFO CCConfig:84 - executable = ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe""
+12:37:31,761 [main]  INFO CCConfig:84 - projectPath = "M:\kedar.kulkarni02_view\Migrate_VOB"
+12:37:31,761 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:37:31,761 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:37:31,761 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:37:31,777 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:37:31,777 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:37:31,777 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:37:31,777 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:37:31,777 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:37:31,777 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:37:31,777 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:37:31,777 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:37:31,777 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:37:31,777 [main]  INFO MainConfig:84 - ****************************************************************************
+12:37:31,777 [main]  INFO historyLogger:84 - **********************************************************************
+12:37:31,777 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:37:31 PM
+12:37:31,777 [main]  INFO historyLogger:84 - mode: list files
+12:37:31,777 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:37:31,777 [main]  INFO Main:84 - List files to files_20200107_123731.txt
+12:37:31,793 [main]  INFO Exec:84 - exec "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe" lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:37:31,808 [main] ERROR Main:96 - EXCEPTION CAUGHT: org.polarion.svnimporter.ccprovider.CCException: error during execution command "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe" lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n, exception caught
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:244)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: Cannot run program ""C:\ProgramData\Microsoft\Windows\Start Menu\Programs\IBM Rational ClearCase\cleartool.exe"" (in directory "M:\kedar.kulkarni02_view\Migrate_VOB"): CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: CreateProcess error=2, The system cannot find the file specified
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+
+12:37:31,808 [main] DEBUG CCProvider:80 - cleanup
+12:37:31,808 [main]  INFO historyLogger:84 - duration: 0 seconds
+12:43:07,686 [main]  INFO MainConfig:84 - ****************************************************************************
+12:43:07,686 [main]  INFO MainConfig:84 - *** Global options ***
+12:43:07,686 [main]  INFO MainConfig:84 - Mode = list files
+12:43:07,686 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:43:07,686 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:43:07,686 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:43:07,686 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:43:07,702 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:43:07,702 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_124307.txt"
+12:43:07,702 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:43:07,702 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:43:07,702 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:43:07,702 [main]  INFO CCConfig:84 - executable = "cleartool.exe"
+12:43:07,702 [main]  INFO CCConfig:84 - projectPath = "M:kedar.kulkarni02_viewMigrate_VOB"
+12:43:07,702 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:43:07,702 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:43:07,702 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:43:07,702 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:43:07,702 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:43:07,702 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:43:07,702 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:43:07,702 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:43:07,702 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:43:07,702 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:43:07,702 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:43:07,702 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:43:07,702 [main]  INFO MainConfig:84 - ****************************************************************************
+12:43:07,702 [main]  INFO historyLogger:84 - **********************************************************************
+12:43:07,702 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:43:07 PM
+12:43:07,702 [main]  INFO historyLogger:84 - mode: list files
+12:43:07,702 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:43:07,702 [main]  INFO Main:84 - List files to files_20200107_124307.txt
+12:43:07,718 [main]  INFO Exec:84 - exec cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:43:07,733 [main] ERROR Main:96 - EXCEPTION CAUGHT: org.polarion.svnimporter.ccprovider.CCException: error during execution command cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n, exception caught
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:244)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: Cannot run program "cleartool.exe" (in directory "M:kedar.kulkarni02_viewMigrate_VOB"): CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+
+12:43:07,733 [main] DEBUG CCProvider:80 - cleanup
+12:43:07,733 [main]  INFO historyLogger:84 - duration: 0 seconds
+12:48:51,091 [main]  INFO MainConfig:84 - ****************************************************************************
+12:48:51,107 [main]  INFO MainConfig:84 - *** Global options ***
+12:48:51,107 [main]  INFO MainConfig:84 - Mode = list files
+12:48:51,107 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:48:51,107 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:48:51,107 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:48:51,107 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:48:51,107 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:48:51,107 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_124851.txt"
+12:48:51,107 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:48:51,107 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:48:51,107 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:48:51,107 [main]  INFO CCConfig:84 - executable = "cleartool.exe"
+12:48:51,107 [main]  INFO CCConfig:84 - projectPath = "M:kedar.kulkarni02_viewMigrate_VOB"
+12:48:51,107 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:48:51,107 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:48:51,107 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:48:51,107 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:48:51,107 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:48:51,107 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:48:51,107 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:48:51,107 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:48:51,107 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:48:51,107 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:48:51,107 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:48:51,107 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:48:51,107 [main]  INFO MainConfig:84 - ****************************************************************************
+12:48:51,123 [main]  INFO historyLogger:84 - **********************************************************************
+12:48:51,123 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:48:51 PM
+12:48:51,123 [main]  INFO historyLogger:84 - mode: list files
+12:48:51,123 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:48:51,138 [main]  INFO Main:84 - List files to files_20200107_124851.txt
+12:48:51,154 [main]  INFO Exec:84 - exec cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:48:51,248 [main] ERROR Main:96 - EXCEPTION CAUGHT: org.polarion.svnimporter.ccprovider.CCException: error during execution command cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n, exception caught
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:244)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: Cannot run program "cleartool.exe" (in directory "M:kedar.kulkarni02_viewMigrate_VOB"): CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1048)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+Caused by: java.io.IOException: CreateProcess error=267, The directory name is invalid
+	at java.lang.ProcessImpl.create(Native Method)
+	at java.lang.ProcessImpl.<init>(ProcessImpl.java:386)
+	at java.lang.ProcessImpl.start(ProcessImpl.java:137)
+	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029)
+	at java.lang.Runtime.exec(Runtime.java:620)
+	at org.polarion.svnimporter.common.Exec.exec(Exec.java:218)
+	at org.polarion.svnimporter.ccprovider.CCProvider.executeCommand(CCProvider.java:240)
+	at org.polarion.svnimporter.ccprovider.CCProvider.buildCCModel(CCProvider.java:171)
+	at org.polarion.svnimporter.ccprovider.CCProvider.listFiles(CCProvider.java:116)
+	at org.polarion.svnimporter.main.Main.listFiles(Main.java:169)
+	at org.polarion.svnimporter.main.Main.run(Main.java:86)
+	at org.polarion.svnimporter.main.Main.main(Main.java:51)
+
+12:48:51,248 [main] DEBUG CCProvider:80 - cleanup
+12:48:51,248 [main]  INFO historyLogger:84 - duration: 0 seconds
+12:50:11,577 [main]  INFO MainConfig:84 - ****************************************************************************
+12:50:11,593 [main]  INFO MainConfig:84 - *** Global options ***
+12:50:11,593 [main]  INFO MainConfig:84 - Mode = list files
+12:50:11,593 [main]  INFO MainConfig:84 - Import dump into svn = "true"
+12:50:11,593 [main]  INFO MainConfig:84 - Import dump only if svn repository exist = "false"
+12:50:11,593 [main]  INFO MainConfig:84 - Full dump path = "full_dump_%date%.txt"
+12:50:11,593 [main]  INFO MainConfig:84 - Incremental dump path = "incr_dump_%date%.txt"
+12:50:11,593 [main]  INFO MainConfig:84 - Incremental history path = "incr_history.txt"
+12:50:11,593 [main]  INFO MainConfig:84 - Save files list to = "files_20200107_125011.txt"
+12:50:11,593 [main]  INFO MainConfig:84 - Source provider's class = "org.polarion.svnimporter.ccprovider.CCProvider"
+12:50:11,593 [main]  INFO MainConfig:84 - Size limit for dump files (in MB): 400
+12:50:11,593 [main]  INFO CCConfig:84 - *** ClearCase provider configuration ***
+12:50:11,593 [main]  INFO CCConfig:84 - executable = "cleartool.exe"
+12:50:11,593 [main]  INFO CCConfig:84 - projectPath = "M:\kedar.kulkarni02_view\Migrate_VOB"
+12:50:11,593 [main]  INFO CCConfig:84 - temp dir = "c:\temp\local\cc.tempdir"
+12:50:11,593 [main]  INFO CCConfig:84 - log date format = "yyyyMMdd.HHmmss"
+12:50:11,593 [main]  INFO CCConfig:84 - verbose exec = "true"
+12:50:11,593 [main]  INFO ProviderConfig:84 - svnimporter_user_name = "kedar.kulkarni02"
+12:50:11,593 [main]  INFO ProviderConfig:84 - only_trunk = "false"
+12:50:11,593 [main]  INFO ProviderConfig:84 - trunk_path = "trunk"
+12:50:11,593 [main]  INFO ProviderConfig:84 - branches_path = "branches"
+12:50:11,593 [main]  INFO ProviderConfig:84 - tags_path = "tags"
+12:50:11,593 [main]  INFO ProviderConfig:84 - use_only_last_revision_content = "false"
+12:50:11,593 [main]  INFO ProviderConfig:84 - file_description_property_key = "description"
+12:50:11,593 [main]  INFO ProviderConfig:84 - use_file_copy = "true"
+12:50:11,593 [main]  WARN ProviderConfig:88 - WARNING: you enabled use_file_copy, so you will not be able to make incremental imports to synchronize repositories
+12:50:11,608 [main]  INFO MainConfig:84 - ****************************************************************************
+12:50:11,608 [main]  INFO historyLogger:84 - **********************************************************************
+12:50:11,608 [main]  INFO historyLogger:84 - date: Jan 7, 2020 12:50:11 PM
+12:50:11,608 [main]  INFO historyLogger:84 - mode: list files
+12:50:11,608 [main]  INFO historyLogger:84 - src provider: class org.polarion.svnimporter.ccprovider.CCProvider
+12:50:11,608 [main]  INFO Main:84 - List files to files_20200107_125011.txt
+12:50:11,624 [main]  INFO Exec:84 - exec cleartool.exe lshistory -recurse -fmt %Nd@@@%En@@@%Vn@@@%o@@@!%l@@@!%a@@@%m@@@%u@@@%Nc@@@\n
+12:50:12,155 [stdout]  INFO Exec:84 - 20200107.103852@@@src\emp.java@@@\main\6@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@Add a new line for UCM testing@@@
+12:50:12,202 [stdout]  INFO Exec:84 - 20200106.164842@@@src\emp.java@@@\main\5@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@merging@@@
+12:50:12,217 [stdout]  INFO Exec:84 - 20200106.164841@@@doc\readme@@@\main\3@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@merging@@@
+12:50:12,217 [stdout]  INFO Exec:84 - 20200106.164841@@@doc\ccgiterror2.txt@@@\main\3@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@merging@@@
+12:50:12,217 [stdout]  INFO Exec:84 - 20200106.163822@@@doc\ccgiterror2.txt@@@\main\feature\3@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,217 [stdout]  INFO Exec:84 - 20200106.163749@@@doc\ccgiterror2.txt@@@\main\2@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,217 [stdout]  INFO Exec:84 - 20200106.162751@@@doc\readme@@@\main\feature\2@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@2nd verion@@@
+12:50:12,217 [stdout]  INFO Exec:84 - 20200106.162751@@@doc\ccgiterror2.txt@@@\main\feature\2@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@2nd verion@@@
+12:50:12,233 [stdout]  INFO Exec:84 - 20200106.162750@@@doc\ccgiterror1.txt@@@\main\feature\2@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@2nd verion@@@
+12:50:12,233 [stdout]  INFO Exec:84 - 20200106.162750@@@doc\ccgiterror.txt@@@\main\feature\2@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@2nd verion@@@
+12:50:12,233 [stdout]  INFO Exec:84 - 20200106.162724@@@doc\ccgiterror2.txt@@@\main\feature\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,233 [stdout]  INFO Exec:84 - 20200106.162723@@@doc\ccgiterror1.txt@@@\main\feature\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,233 [stdout]  INFO Exec:84 - 20200106.162723@@@doc\ccgiterror.txt@@@\main\feature\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,233 [stdout]  INFO Exec:84 - 20200106.162714@@@doc\ccgiterror2.txt@@@\main\feature\0@@@mkbranch@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,249 [stdout]  INFO Exec:84 - 20200106.162714@@@doc\ccgiterror2.txt@@@\main\feature@@@mkbranch@@@!@@@!@@@branch@@@kedar.kulkarni02@@@@@@
+12:50:12,249 [stdout]  INFO Exec:84 - 20200106.162713@@@doc\ccgiterror1.txt@@@\main\feature\0@@@mkbranch@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,249 [stdout]  INFO Exec:84 - 20200106.162713@@@doc\ccgiterror1.txt@@@\main\feature@@@mkbranch@@@!@@@!@@@branch@@@kedar.kulkarni02@@@@@@
+12:50:12,249 [stdout]  INFO Exec:84 - 20200106.162704@@@doc\ccgiterror.txt@@@\main\feature\0@@@mkbranch@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,264 [stdout]  INFO Exec:84 - 20200106.162704@@@doc\ccgiterror.txt@@@\main\feature@@@mkbranch@@@!@@@!@@@branch@@@kedar.kulkarni02@@@@@@
+12:50:12,264 [stdout]  INFO Exec:84 - 20200106.162456@@@doc@@@\main\2@@@checkin@@@!@@@!@@@directory version@@@kedar.kulkarni02@@@Added file element "ccgiterror.txt".
+12:50:12,264 [stdout]  INFO Exec:84 - Added file element "ccgiterror1.txt".
+12:50:12,264 [stdout]  INFO Exec:84 - Added file element "ccgiterror2.txt".@@@
+12:50:12,264 [stdout]  INFO Exec:84 - 20200106.162455@@@doc\ccgiterror2.txt@@@\main\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,264 [stdout]  INFO Exec:84 - 20200106.162455@@@doc\ccgiterror2.txt@@@\main\0@@@mkelem@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,264 [stdout]  INFO Exec:84 - 20200106.162455@@@doc\ccgiterror2.txt@@@\main@@@mkelem@@@!@@@!@@@branch@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162455@@@doc\ccgiterror2.txt@@@@@@mkelem@@@!@@@!@@@file element@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162454@@@doc\ccgiterror1.txt@@@\main\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162454@@@doc\ccgiterror1.txt@@@\main\0@@@mkelem@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162454@@@doc\ccgiterror1.txt@@@\main@@@mkelem@@@!@@@!@@@branch@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162454@@@doc\ccgiterror1.txt@@@@@@mkelem@@@!@@@!@@@file element@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162453@@@doc\ccgiterror.txt@@@\main\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162453@@@doc\ccgiterror.txt@@@\main\0@@@mkelem@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,280 [stdout]  INFO Exec:84 - 20200106.162453@@@doc\ccgiterror.txt@@@\main@@@mkelem@@@!@@@!@@@branch@@@kedar.kulkarni02@@@@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.162453@@@doc\ccgiterror.txt@@@@@@mkelem@@@!@@@!@@@file element@@@kedar.kulkarni02@@@@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.125905@@@src@@@\main\3@@@checkin@@@!@@@!@@@directory version@@@kedar.kulkarni02@@@comment to delete test1.txt
+12:50:12,296 [stdout]  INFO Exec:84 - Uncataloged file element "test1.txt".@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.125701@@@src\emp.java@@@\main\4@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@comment test1@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.120101@@@src\emp.java@@@\main\feature\2@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.115605@@@src@@@\main\2@@@checkin@@@!@@@!@@@directory version@@@kedar.kulkarni02@@@new file
+12:50:12,296 [stdout]  INFO Exec:84 - Added file element "test1.txt".@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.113945@@@doc\readme@@@\main\feature\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@new line@@@
+12:50:12,296 [stdout]  INFO Exec:84 - 20200106.113927@@@doc\readme@@@\main\feature\0@@@mkbranch@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.113927@@@doc\readme@@@\main\feature@@@mkbranch@@@!@@@!@@@branch@@@kedar.kulkarni02@@@new line@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.112123@@@src\emp.java@@@\main\feature\1@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.111944@@@src\emp.java@@@\main\feature\0@@@mkbranch@@@!@@@!@@@version@@@kedar.kulkarni02@@@@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.111944@@@src\emp.java@@@\main\feature@@@mkbranch@@@!@@@!@@@branch@@@kedar.kulkarni02@@@add more lines@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.111607@@@src\emp.java@@@\main\3@@@checkin@@@!@@@!@@@version@@@kedar.kulkarni02@@@Adding few lines@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.081111@@@src@@@\main\bug\1@@@checkin@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@Added directory element "WebContent".@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.081111@@@src@@@\main\bug\0@@@mkbranch@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.081111@@@src@@@\main\bug@@@mkbranch@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,311 [stdout]  INFO Exec:84 - 20200106.081043@@@doc@@@\main\bug\1@@@checkin@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@Added file element "CPC-SRS-UseCase-Application for Demand Partner (On Field).docx".
+12:50:12,327 [stdout]  INFO Exec:84 - Added file element "CPC-SRS-UseCase Template.docx".
+12:50:12,327 [stdout]  INFO Exec:84 - Added file element "GST Status.xlsx".
+12:50:12,327 [stdout]  INFO Exec:84 - Added file element "GST System Project SRS for Return Module-PMT-08 V 1.2.docx".@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200106.081035@@@doc@@@\main\bug\0@@@mkbranch@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200106.081035@@@doc@@@\main\bug@@@mkbranch@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200103.132520@@@src\emp.java@@@\main\bug\1@@@checkin@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200103.132507@@@src\emp.java@@@\main\bug\0@@@mkbranch@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200103.132507@@@src\emp.java@@@\main\bug@@@mkbranch@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200103.132155@@@doc\readme@@@\main\2@@@checkin@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,327 [stdout]  INFO Exec:84 - 20200103.132136@@@src\emp.java@@@\main\2@@@checkin@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,342 [stdout]  INFO Exec:84 - 20200103.131309@@@doc@@@\main\1@@@checkin@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@Added file element "readme".@@@
+12:50:12,342 [stdout]  INFO Exec:84 - 20200103.131309@@@.@@@\main\2@@@checkin@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@Added directory element "doc".@@@
+12:50:12,342 [stdout]  INFO Exec:84 - 20200103.131308@@@doc\readme@@@\main\1@@@checkin@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,342 [stdout]  INFO Exec:84 - 20200103.131308@@@doc\readme@@@\main\0@@@mkelem@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,342 [stdout]  INFO Exec:84 - 20200103.131308@@@doc\readme@@@\main@@@mkelem@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,342 [stdout]  INFO Exec:84 - 20200103.131308@@@doc\readme@@@@@@mkelem@@@!@@@!@@@file element@@@vasudeva.niranjan@@@@@@
+12:50:12,358 [stdout]  INFO Exec:84 - 20200103.131308@@@doc@@@\main\0@@@mkelem@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@@@@
+12:50:12,358 [stdout]  INFO Exec:84 - 20200103.131308@@@doc@@@\main@@@mkelem@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,358 [stdout]  INFO Exec:84 - 20200103.131308@@@doc@@@@@@mkelem@@@!@@@!@@@directory element@@@vasudeva.niranjan@@@@@@
+12:50:12,358 [stdout]  INFO Exec:84 - 20200103.131241@@@src@@@\main\1@@@checkin@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@Added file element "emp.java".@@@
+12:50:12,358 [stdout]  INFO Exec:84 - 20200103.131241@@@.@@@\main\1@@@checkin@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@Added directory element "src".@@@
+12:50:12,374 [stdout]  INFO Exec:84 - 20200103.131241@@@src\emp.java@@@\main\1@@@checkin@@@!(R1)@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,374 [stdout]  INFO Exec:84 - 20200103.131241@@@src\emp.java@@@\main\0@@@mkelem@@@!@@@!@@@version@@@vasudeva.niranjan@@@@@@
+12:50:12,374 [stdout]  INFO Exec:84 - 20200103.131241@@@src\emp.java@@@\main@@@mkelem@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,374 [stdout]  INFO Exec:84 - 20200103.131241@@@src\emp.java@@@@@@mkelem@@@!@@@!@@@file element@@@vasudeva.niranjan@@@@@@
+12:50:12,374 [stdout]  INFO Exec:84 - 20200103.131240@@@src@@@\main\0@@@mkelem@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@@@@
+12:50:12,374 [stdout]  INFO Exec:84 - 20200103.131240@@@src@@@\main@@@mkelem@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,389 [stdout]  INFO Exec:84 - 20200103.131240@@@src@@@@@@mkelem@@@!@@@!@@@directory element@@@vasudeva.niranjan@@@@@@
+12:50:12,389 [stdout]  INFO Exec:84 - 20200103.131057@@@lost+found@@@\main\0@@@mkelem@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@@@@
+12:50:12,389 [stdout]  INFO Exec:84 - 20200103.131057@@@lost+found@@@\main@@@mkelem@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,389 [stdout]  INFO Exec:84 - 20200103.131057@@@lost+found@@@@@@mkelem@@@!@@@!@@@directory element@@@vasudeva.niranjan@@@Predefined directory element used to hold elements with no parent directory.@@@
+12:50:12,405 [stdout]  INFO Exec:84 - 20200103.131057@@@.@@@\main\0@@@mkelem@@@!@@@!@@@directory version@@@vasudeva.niranjan@@@@@@
+12:50:12,405 [stdout]  INFO Exec:84 - 20200103.131057@@@.@@@\main@@@mkelem@@@!@@@!@@@branch@@@vasudeva.niranjan@@@@@@
+12:50:12,405 [stdout]  INFO Exec:84 - 20200103.131057@@@.@@@@@@mkelem@@@!@@@!@@@directory element@@@vasudeva.niranjan@@@Predefined directory element for root of versioned object base.@@@
+12:50:12,405 [main] DEBUG Exec:80 - Process exit value: 0
+12:50:12,546 [main]  INFO CCProvider:84 - ClearCase model has been created.
+12:50:12,546 [main]  INFO Model:84 - Summary: 
+12:50:12,546 [main]  INFO Model:84 -  Files: 5
+12:50:12,546 [main]  INFO Model:84 -  Revisions: 26
+12:50:12,546 [main]  INFO Model:84 -  Commits: 22
+12:50:12,546 [main]  INFO historyLogger:84 - successfully finished
+12:50:12,561 [main] DEBUG CCProvider:80 - cleanup
+12:50:12,561 [main]  INFO historyLogger:84 - duration: 0 seconds
